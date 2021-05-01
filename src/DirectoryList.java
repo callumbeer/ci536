@@ -44,7 +44,7 @@ public class DirectoryList {
                     try {
                         while ((line = br.readLine()) != null) { // read lines til blank
                             //System.out.println(line);
-                        	if(line.contains("VIRUS")) { // if line within file contains keyword...
+                        	if(line.contains("virus")) { // if line within file contains keyword...
                         		System.out.println("WARNING! THIS FILE IS A VIRUS! : " + fileName);
                         	}
                         }
