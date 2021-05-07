@@ -3,14 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package antivirus_frontend_gui;
+
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -31,7 +33,10 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label btn_scan,btn_scan_current,btn_logs,btn_logs_current,
             btn_settings,btn_settings_current,btn_accessibility,
-            btn_accessibility_current;
+            btn_accessibility_current,btn_start_scan, lastscan;
+    
+    @FXML
+    private TextArea dead_scan_box;
     
     @FXML
     private void switchTab(MouseEvent event) {
@@ -111,6 +116,24 @@ public class FXMLDocumentController implements Initializable {
             Stage stage = (Stage)anchorpane.getScene().getWindow();
             stage.setIconified(true);
         }
+        else if(event.getSource() == btn_start_scan){
+            Antivirus_Frontend_GUI AFG = new Antivirus_Frontend_GUI();
+            AFG.spawnScanBox();
+            Antivirus_Frontend_GUI.selectDir();
+            DirectoryList.directoryList();
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+            Date date = new Date();
+            lastScan(formatter.format(date));
+        }
+    }
+    
+    @FXML
+    private void lastScan(String date){
+        lastscan.setText("Last Scanned: " + date);
+    }
+    
+    public void deadOutput(String input){
+        dead_scan_box.appendText(input);
     }
     
     private double xOffset = 0;
