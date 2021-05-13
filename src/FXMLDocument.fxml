@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorpane" prefHeight="720.0" prefWidth="1224.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXMLDocumentController">
+   <children>
+      <AnchorPane fx:id="topbar" onMouseDragged="#windowDrag" onMousePressed="#windowPress" prefHeight="72.0" prefWidth="1224.0" style="-fx-background-color: #3D4956;">
+         <children>
+            <AmbientLight color="CHARTREUSE" layoutX="411.0" layoutY="20.0" />
+            <AnchorPane fx:id="infopane" prefHeight="72.0" prefWidth="298.0">
+               <children>
+                  <ImageView fitHeight="72.0" fitWidth="72.0" layoutX="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="version" alignment="TOP_LEFT" layoutX="87.0" layoutY="1.0" prefHeight="8.0" prefWidth="218.0" text="A-Team Antivirus 0.4.0 BETA" textFill="#bcbcbc">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="copyright" alignment="TOP_LEFT" layoutX="87.0" layoutY="18.0" prefHeight="8.0" prefWidth="218.0" text="Copyright © 2021" textFill="#bcbcbc">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lastupdate" alignment="TOP_LEFT" layoutX="87.0" layoutY="36.0" prefHeight="8.0" prefWidth="218.0" text="Last updated: 12/05/2021" textFill="#bcbcbc">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lastscan" alignment="TOP_LEFT" layoutX="87.0" layoutY="53.0" prefHeight="8.0" prefWidth="218.0" text="Last scanned: N/A" textFill="#bcbcbc">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="windowcontrol" layoutX="1143.0" layoutY="-1.0" prefHeight="38.0" prefWidth="72.0">
+               <children>
+                  <ImageView fx:id="btn_close" fitHeight="30.0" fitWidth="30.0" layoutX="43.0" layoutY="4.0" onMouseClicked="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/close.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="btn_minimise" fitHeight="30.0" fitWidth="30.0" layoutX="-1.0" layoutY="4.0" onMouseClicked="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/minimise.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="csnews" layoutY="81.0" prefHeight="638.1" prefWidth="400.5" style="-fx-background-color: #3D4956;">
+         <children>
+            <Label fx:id="CSNlabel" layoutX="65.0" layoutY="14.0" onMouseClicked="#handleButtonAction" prefHeight="38.0" prefWidth="271.0" text="CYBER SECURITY NEWS" textAlignment="CENTER" textFill="#bcbcbc">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutY="64.0" prefHeight="575.0" prefWidth="401.0">
+               <children>
+                  <WebView fx:id="newspane" prefHeight="575.0" prefWidth="401.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="scan" layoutX="411.0" layoutY="81.0" prefHeight="639.0" prefWidth="813.0" style="-fx-background-color: #3D4956;">
+         <children>
+            <Label fx:id="btn_start_scan" alignment="CENTER" layoutX="295.0" layoutY="316.0" onMouseClicked="#handleButtonAction" opacity="0.9" prefHeight="54.0" prefWidth="225.0" style="-fx-background-color: #eeeeee;" text="START SCAN" textAlignment="CENTER" textFill="#3d4956">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Label>
+            <Label fx:id="intro" alignment="TOP_LEFT" layoutX="46.0" layoutY="173.0" prefHeight="118.0" prefWidth="722.0" text="Welcome to A-Team Antivirus.&#10;Once start scan is clicked, you will be prompted to select the directory you wish &#10;to scan. View past scan logs under the LOGS tab, and change your preferences under &#10;the SETTINGS &amp; ACCESSIBILITY tabs.&#10;" textAlignment="CENTER" textFill="#bcbcbc">
+               <font>
+                  <Font size="19.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <Separator layoutX="293.0" layoutY="76.0" prefWidth="200.0" />
+         </children></AnchorPane>
+      <AnchorPane fx:id="logs" layoutX="411.0" layoutY="81.0" prefHeight="638.1" prefWidth="813.0" style="-fx-background-color: #3D4956;" visible="false">
+         <children>
+            <ListView fx:id="loglist" layoutY="64.0" prefHeight="500.0" prefWidth="812.0" />
+            <Label fx:id="btn_del_log" layoutX="681.0" layoutY="585.0" onMouseClicked="#handleButtonAction" text="DELETE" textFill="#bcbcbc">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="btn_opn_log" layoutX="54.0" layoutY="585.0" onMouseClicked="#handleButtonAction" text="OPEN" textFill="#bcbcbc">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <AnchorPane fx:id="settings" layoutX="411.0" layoutY="81.0" prefHeight="638.1" prefWidth="813.0" style="-fx-background-color: #3D4956;" visible="false">
+         <children>
+            <Label fx:id="as" layoutX="41.0" layoutY="100.0" text="AUTOSAVE SCAN LOGS" textFill="#bcbcbc">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="btn_autosave" layoutX="727.0" layoutY="100.0" onMouseClicked="#handleButtonAction" onMouseEntered="#toggleHover" onMouseExited="#toggleUnHover" text="ON">
+               <font>
+                  <Font size="26.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+               <textFill>
+                  <LinearGradient endX="0.3106796116504854" endY="1.0">
+                     <stops>
+                        <Stop color="#fb6bab" />
+                        <Stop color="#ee2e7e" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label fx:id="btn_show_news" layoutX="727.0" layoutY="150.0" onMouseClicked="#handleButtonAction" onMouseEntered="#toggleHover" onMouseExited="#toggleUnHover" text="ON">
+               <effect>
+                  <Glow />
+               </effect>
+               <font>
+                  <Font size="26.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.3106796116504854" endY="1.0">
+                     <stops>
+                        <Stop color="#fb6bab" />
+                        <Stop color="#ee2e7e" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label fx:id="csn" layoutX="41.0" layoutY="150.0" onMouseClicked="#handleButtonAction" onMouseEntered="#toggleHover" onMouseExited="#toggleUnHover" text="CYBER SECURITY NEWS" textFill="#bcbcbc">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Separator layoutX="293.0" layoutY="76.0" prefWidth="200.0" />
+            <Label fx:id="prefiles" layoutX="41.0" layoutY="200.0" onMouseClicked="#handleButtonAction" onMouseEntered="#toggleHover" onMouseExited="#toggleUnHover" text="SAVE PREFERENCES" textFill="#bcbcbc">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="btn_prefiles" layoutX="727.0" layoutY="200.0" onMouseClicked="#handleButtonAction" onMouseEntered="#toggleHover" onMouseExited="#toggleUnHover" text="ON">
+               <effect>
+                  <Glow />
+               </effect>
+               <font>
+                  <Font size="26.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.3106796116504854" endY="1.0">
+                     <stops>
+                        <Stop color="#fb6bab" />
+                        <Stop color="#ee2e7e" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+         </children></AnchorPane>
+      <AnchorPane fx:id="accessibility" layoutX="411.0" layoutY="81.0" prefHeight="638.1" prefWidth="813.0" style="-fx-background-color: #3D4956;" visible="false">
+         <children>
+            <Label fx:id="theem" layoutX="41.0" layoutY="100.0" text="THEME" textFill="#bcbcbc">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="btn_themeswitch" layoutX="727.0" layoutY="100.0" onMouseClicked="#handleButtonAction" onMouseEntered="#toggleHover" onMouseExited="#toggleUnHover" text="DARK" textFill="#bcbcbc">
+               <font>
+                  <Font size="26.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <Separator layoutX="293.0" layoutY="76.0" prefWidth="200.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="tabmenu" layoutX="412.0" layoutY="82.0" prefHeight="65.0" prefWidth="812.0">
+          
+                           <children>
+            
+                                          <Label fx:id="btn_scan_current" layoutX="64.0" layoutY="10.0" text="SCAN" textFill="#bcbcbc">
+               <font>
+                  <Font size="26.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            
+                                          <Label fx:id="btn_logs_current" layoutX="234.0" layoutY="10.0" text="LOGS" textFill="#bcbcbc" visible="false">
+               <font>
+                  <Font size="26.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            
+                                          <Label fx:id="btn_settings_current" layoutX="407.0" layoutY="10.0" text="SETTINGS" textFill="#bcbcbc" visible="false">
+               <font>
+                  <Font size="26.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            
+                                                <Label fx:id="btn_accessibility_current" layoutX="607.0" layoutY="10.0" text="ACCESSIBILITY" textFill="#bcbcbc" visible="false">
+               <font>
+                  <Font size="26.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <Label fx:id="btn_scan" layoutX="64.0" layoutY="12.0" onMouseClicked="#switchTab" text="SCAN" visible="false">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            
+                                          <Label fx:id="btn_logs" layoutX="234.0" layoutY="12.0" onMouseClicked="#switchTab" text="LOGS">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            
+                                          <Label fx:id="btn_settings" layoutX="407.0" layoutY="12.0" onMouseClicked="#switchTab" text="SETTINGS">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            
+                                          <Label fx:id="btn_accessibility" layoutX="607.0" layoutY="12.0" onMouseClicked="#switchTab" text="ACCESSIBILITY">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+         </children>
+      
+                        </AnchorPane>
+   </children>
+</AnchorPane>

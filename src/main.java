@@ -1,53 +1,66 @@
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
-public class main implements ActionListener {
-	int count = 0;
-	private JLabel label;
-	private JFrame frame;
-	private JPanel panel;
-	private JButton button;
-	
-	public main() {
-		frame = new JFrame();
-		
-		button = new JButton("Click me");
-		button.addActionListener(this);
-		
-		 label = new JLabel("Number of clicks: 0");
-		
-		
-		panel = new JPanel();
-		panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
-		panel.setLayout(new GridLayout(0, 1));
-		panel.add(button);
-		panel.add(label);
-		
-		frame.add(panel, BorderLayout.CENTER);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setTitle("System");
-		frame.pack();
-		frame.setVisible(true);
-	}
-	public static void main(String[] args) {
-		new main();
+/**
+ *
+ * @author jacks
+ */
 
-	}
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		count++;
-		label.setText("Number of clicks: " + count);
-		
-	}
+/*
+   BIG BETA UPDATE!
+   Current Version: 0.4.0
+  
+   New Features:
+   
+   Scan logs(Save, view, delete)
+   Cyber Sec News 
+   Settings (Autosave Scan logs toggle on/off, CSNews pane toggle on/off, Save Preferences toggle on/off)
+   Accessibility (Light mode)
+   
+   New Improvements:
+  
+   GUI aestetic improvements
+   Last Scanned ticker saves between sessions (with preferences)
 
+   Bug Fixes:
+   Delete log feature stabalised (problems caused by resource leak in BufferedReader)
+   Performance now significantly improved due to closed resource leak
+   
+   Misc Changes:
+  
+   Name Change (Team A -> A-Team)
+   Removed old scan Box ( R.I.P. the dream is dead :( )
+  
+   WARNING: A-Team is still in early beta and you may encounter some known bugs
+*/
+
+public class Main extends Application {
+
+    /**
+     * @param args the command line arguments
+     */
+    
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    /**
+     *
+     * @param arg0
+     * @throws Exception
+     */
+    @Override
+    public void start(Stage arg0) throws Exception {
+        
+        Antivirus_Frontend_GUI AFG = new Antivirus_Frontend_GUI();
+        AFG.start(arg0); 
+        
+    }
+    
 }
-
