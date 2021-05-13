@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.media.*?>
 <?import javafx.scene.web.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.effect.*?>
@@ -15,173 +18,220 @@
    <children>
       <AnchorPane fx:id="topbar" onMouseDragged="#windowDrag" onMousePressed="#windowPress" prefHeight="72.0" prefWidth="1224.0" style="-fx-background-color: #3D4956;">
          <children>
-            <ImageView fx:id="btn_close" fitHeight="30.0" fitWidth="30.0" layoutX="1186.0" layoutY="5.0" onMouseClicked="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/close.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="btn_minimise" fitHeight="30.0" fitWidth="30.0" layoutX="1144.0" layoutY="5.0" onMouseClicked="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/minimise.png" />
-               </image>
-            </ImageView>
             <AmbientLight color="CHARTREUSE" layoutX="411.0" layoutY="20.0" />
-            <ImageView fitHeight="72.0" fitWidth="72.0" layoutX="5.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/logo.png" />
-               </image></ImageView>
-            <Label alignment="TOP_LEFT" layoutX="87.0" layoutY="1.0" prefHeight="8.0" prefWidth="218.0" text="Team-A Antivirus v0.3 alpha build" textFill="#bcbcbc">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Label alignment="TOP_LEFT" layoutX="87.0" layoutY="18.0" prefHeight="8.0" prefWidth="218.0" text="Copyright © 2021" textFill="#bcbcbc">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Label alignment="TOP_LEFT" layoutX="87.0" layoutY="36.0" prefHeight="8.0" prefWidth="218.0" text="Last updated: 06/05/2021" textFill="#bcbcbc">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Label fx:id="lastscan" alignment="TOP_LEFT" layoutX="87.0" layoutY="53.0" prefHeight="8.0" prefWidth="218.0" text="Last scanned: N/A" textFill="#bcbcbc">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
+            <AnchorPane fx:id="infopane" prefHeight="72.0" prefWidth="298.0">
+               <children>
+                  <ImageView fitHeight="72.0" fitWidth="72.0" layoutX="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="version" alignment="TOP_LEFT" layoutX="87.0" layoutY="1.0" prefHeight="8.0" prefWidth="218.0" text="A-Team Antivirus 0.4.0 BETA" textFill="#bcbcbc">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="copyright" alignment="TOP_LEFT" layoutX="87.0" layoutY="18.0" prefHeight="8.0" prefWidth="218.0" text="Copyright © 2021" textFill="#bcbcbc">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lastupdate" alignment="TOP_LEFT" layoutX="87.0" layoutY="36.0" prefHeight="8.0" prefWidth="218.0" text="Last updated: 12/05/2021" textFill="#bcbcbc">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lastscan" alignment="TOP_LEFT" layoutX="87.0" layoutY="53.0" prefHeight="8.0" prefWidth="218.0" text="Last scanned: N/A" textFill="#bcbcbc">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="windowcontrol" layoutX="1143.0" layoutY="-1.0" prefHeight="38.0" prefWidth="72.0">
+               <children>
+                  <ImageView fx:id="btn_close" fitHeight="30.0" fitWidth="30.0" layoutX="43.0" layoutY="4.0" onMouseClicked="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/close.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="btn_minimise" fitHeight="30.0" fitWidth="30.0" layoutX="-1.0" layoutY="4.0" onMouseClicked="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/minimise.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="csnews" layoutY="81.0" prefHeight="638.1" prefWidth="400.5" style="-fx-background-color: #3D4956;">
          <children>
-            <Label fx:id="btn_scan_current1" layoutX="56.0" layoutY="14.0" prefHeight="38.0" prefWidth="271.0" text="CYBER SECURITY NEWS" textAlignment="CENTER" textFill="#bcbcbc">
+            <Label fx:id="CSNlabel" layoutX="65.0" layoutY="14.0" onMouseClicked="#handleButtonAction" prefHeight="38.0" prefWidth="271.0" text="CYBER SECURITY NEWS" textAlignment="CENTER" textFill="#bcbcbc">
                <font>
                   <Font size="26.0" />
                </font>
             </Label>
-         </children></AnchorPane>
+            <AnchorPane layoutY="64.0" prefHeight="575.0" prefWidth="401.0">
+               <children>
+                  <WebView fx:id="newspane" prefHeight="575.0" prefWidth="401.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
       <AnchorPane fx:id="scan" layoutX="411.0" layoutY="81.0" prefHeight="639.0" prefWidth="813.0" style="-fx-background-color: #3D4956;">
          <children>
-            <Label fx:id="btn_start_scan" alignment="CENTER" layoutX="295.0" layoutY="243.0" onMouseClicked="#handleButtonAction" opacity="0.9" prefHeight="54.0" prefWidth="225.0" style="-fx-background-color: #eeeeee;" text="START SCAN" textAlignment="CENTER" textFill="#3d4956">
+            <Label fx:id="btn_start_scan" alignment="CENTER" layoutX="295.0" layoutY="316.0" onMouseClicked="#handleButtonAction" opacity="0.9" prefHeight="54.0" prefWidth="225.0" style="-fx-background-color: #eeeeee;" text="START SCAN" textAlignment="CENTER" textFill="#3d4956">
                <font>
                   <Font size="37.0" />
                </font>
             </Label>
-            <TextArea fx:id="dead_scan_box" layoutX="157.0" layoutY="370.0" prefHeight="200.0" prefWidth="500.0" />
-            <Label alignment="TOP_LEFT" layoutX="46.0" layoutY="100.0" prefHeight="118.0" prefWidth="722.0" text="Welcome to Team-A Antivirus.&#10;Once start scan is clicked, you will be prompted to select the directory you wish &#10;to scan. View past scan logs under the LOGS tab, and change your preferences under &#10;the SETTINGS &amp; ACCESSIBILITY tabs.&#10;" textAlignment="CENTER" textFill="#bcbcbc">
+            <Label fx:id="intro" alignment="TOP_LEFT" layoutX="46.0" layoutY="173.0" prefHeight="118.0" prefWidth="722.0" text="Welcome to A-Team Antivirus.&#10;Once start scan is clicked, you will be prompted to select the directory you wish &#10;to scan. View past scan logs under the LOGS tab, and change your preferences under &#10;the SETTINGS &amp; ACCESSIBILITY tabs.&#10;" textAlignment="CENTER" textFill="#bcbcbc">
                <font>
                   <Font size="19.0" />
                </font>
+               <effect>
+                  <Glow />
+               </effect>
             </Label>
+            <Separator layoutX="293.0" layoutY="76.0" prefWidth="200.0" />
          </children></AnchorPane>
       <AnchorPane fx:id="logs" layoutX="411.0" layoutY="81.0" prefHeight="638.1" prefWidth="813.0" style="-fx-background-color: #3D4956;" visible="false">
          <children>
-            <ImageView fitHeight="292.0" fitWidth="417.0" layoutX="209.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/fox" />
-               </image>
-            </ImageView>
-            <Label layoutX="282.0" layoutY="149.0" prefHeight="64.0" prefWidth="271.0" text="Logs Tab Placeholder" textAlignment="CENTER" textFill="#d7d7d7">
+            <ListView fx:id="loglist" layoutY="64.0" prefHeight="500.0" prefWidth="812.0" />
+            <Label fx:id="btn_del_log" layoutX="681.0" layoutY="585.0" onMouseClicked="#handleButtonAction" text="DELETE" textFill="#bcbcbc">
                <font>
-                  <Font size="27.0" />
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="btn_opn_log" layoutX="54.0" layoutY="585.0" onMouseClicked="#handleButtonAction" text="OPEN" textFill="#bcbcbc">
+               <font>
+                  <Font size="25.0" />
                </font>
             </Label>
          </children></AnchorPane>
       <AnchorPane fx:id="settings" layoutX="411.0" layoutY="81.0" prefHeight="638.1" prefWidth="813.0" style="-fx-background-color: #3D4956;" visible="false">
          <children>
-            <HTMLEditor htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="81.0" layoutY="270.0" prefHeight="317.0" prefWidth="651.0" />
-            <Label layoutX="243.0" layoutY="153.0" text="Settings Tab Placeholder" textFill="#e8e8e8">
+            <Label fx:id="as" layoutX="41.0" layoutY="100.0" text="AUTOSAVE SCAN LOGS" textFill="#bcbcbc">
                <font>
-                  <Font size="30.0" />
+                  <Font size="23.0" />
                </font>
+            </Label>
+            <Label fx:id="btn_autosave" layoutX="727.0" layoutY="100.0" onMouseClicked="#handleButtonAction" onMouseEntered="#toggleHover" onMouseExited="#toggleUnHover" text="ON">
+               <font>
+                  <Font size="26.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+               <textFill>
+                  <LinearGradient endX="0.3106796116504854" endY="1.0">
+                     <stops>
+                        <Stop color="#fb6bab" />
+                        <Stop color="#ee2e7e" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label fx:id="btn_show_news" layoutX="727.0" layoutY="150.0" onMouseClicked="#handleButtonAction" onMouseEntered="#toggleHover" onMouseExited="#toggleUnHover" text="ON">
+               <effect>
+                  <Glow />
+               </effect>
+               <font>
+                  <Font size="26.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.3106796116504854" endY="1.0">
+                     <stops>
+                        <Stop color="#fb6bab" />
+                        <Stop color="#ee2e7e" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label fx:id="csn" layoutX="41.0" layoutY="150.0" onMouseClicked="#handleButtonAction" onMouseEntered="#toggleHover" onMouseExited="#toggleUnHover" text="CYBER SECURITY NEWS" textFill="#bcbcbc">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Separator layoutX="293.0" layoutY="76.0" prefWidth="200.0" />
+            <Label fx:id="prefiles" layoutX="41.0" layoutY="200.0" onMouseClicked="#handleButtonAction" onMouseEntered="#toggleHover" onMouseExited="#toggleUnHover" text="SAVE PREFERENCES" textFill="#bcbcbc">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="btn_prefiles" layoutX="727.0" layoutY="200.0" onMouseClicked="#handleButtonAction" onMouseEntered="#toggleHover" onMouseExited="#toggleUnHover" text="ON">
+               <effect>
+                  <Glow />
+               </effect>
+               <font>
+                  <Font size="26.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.3106796116504854" endY="1.0">
+                     <stops>
+                        <Stop color="#fb6bab" />
+                        <Stop color="#ee2e7e" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Label>
          </children></AnchorPane>
       <AnchorPane fx:id="accessibility" layoutX="411.0" layoutY="81.0" prefHeight="638.1" prefWidth="813.0" style="-fx-background-color: #3D4956;" visible="false">
          <children>
-            <CheckBox layoutX="92.0" layoutY="162.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="1.0" text="CheckBox" />
-            <CheckBox layoutX="102.0" layoutY="172.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="1.0" text="CheckBox" />
-            <CheckBox layoutX="112.0" layoutY="182.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="1.0" text="CheckBox" />
-            <CheckBox layoutX="122.0" layoutY="192.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="1.0" text="CheckBox" />
-            <CheckBox layoutX="132.0" layoutY="202.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="1.0" text="CheckBox" />
-            <CheckBox layoutX="142.0" layoutY="212.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="1.0" text="CheckBox" />
-            <CheckBox layoutX="152.0" layoutY="222.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="1.0" text="CheckBox" />
-            <CheckBox layoutX="162.0" layoutY="232.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="1.0" text="CheckBox" />
-            <CheckBox layoutX="172.0" layoutY="242.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="1.0" text="CheckBox" />
-            <CheckBox layoutX="182.0" layoutY="252.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="1.0" text="CheckBox" />
-            <ColorPicker layoutX="462.0" layoutY="283.0" />
-            <CheckBox layoutX="102.0" layoutY="172.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="1.0" text="CheckBox" />
-            <CheckBox layoutX="112.0" layoutY="182.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="1.0" text="CheckBox" />
-            <CheckBox layoutX="122.0" layoutY="192.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="1.0" text="CheckBox" />
-            <ColorPicker layoutX="600.0" layoutY="207.0" />
-            <ColorPicker layoutX="610.0" layoutY="217.0" />
-            <ColorPicker layoutX="620.0" layoutY="227.0" />
-            <ColorPicker layoutX="630.0" layoutY="237.0" />
-            <ColorPicker layoutX="640.0" layoutY="247.0" />
-            <ColorPicker layoutX="650.0" layoutY="257.0" />
-            <ColorPicker layoutX="429.0" layoutY="278.0" />
-            <ColorPicker layoutX="572.0" layoutY="283.0" />
-            <ColorPicker layoutX="552.0" layoutY="294.0" />
-            <ColorPicker layoutX="459.0" layoutY="308.0" />
-            <ColorPicker layoutX="592.0" layoutY="317.0" />
-            <ColorPicker layoutX="479.0" layoutY="328.0" />
-            <ColorPicker layoutX="572.0" layoutY="334.0" />
-            <DatePicker layoutX="101.0" layoutY="471.0" />
-            <DatePicker layoutX="111.0" layoutY="481.0" />
-            <DatePicker layoutX="121.0" layoutY="491.0" />
-            <DatePicker layoutX="131.0" layoutY="501.0" />
-            <DatePicker layoutX="141.0" layoutY="511.0" />
-            <DatePicker layoutX="151.0" layoutY="521.0" />
-            <DatePicker layoutX="161.0" layoutY="531.0" />
-            <DatePicker layoutX="171.0" layoutY="541.0" />
-            <Button layoutX="248.0" layoutY="318.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="258.0" layoutY="328.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="268.0" layoutY="338.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="278.0" layoutY="348.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="288.0" layoutY="358.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="298.0" layoutY="368.0" mnemonicParsing="false" text="Button" />
-            <ProgressBar layoutX="450.0" layoutY="491.0" prefWidth="200.0" progress="0.0" />
-            <ProgressBar layoutX="460.0" layoutY="501.0" prefWidth="200.0" progress="0.0" />
-            <ProgressBar layoutX="470.0" layoutY="511.0" prefWidth="200.0" progress="0.0" />
-            <ProgressBar layoutX="480.0" layoutY="521.0" prefWidth="200.0" progress="0.0" />
-            <ProgressBar layoutX="490.0" layoutY="531.0" prefWidth="200.0" progress="0.0" />
-            <ProgressBar layoutX="500.0" layoutY="541.0" prefWidth="200.0" progress="0.0" />
-            <ProgressBar layoutX="510.0" layoutY="551.0" prefWidth="200.0" progress="0.0" />
-            <ProgressBar layoutX="520.0" layoutY="561.0" prefWidth="200.0" progress="0.0" />
-            <ProgressBar layoutX="530.0" layoutY="571.0" prefWidth="200.0" progress="0.0" />
-            <ProgressBar layoutX="540.0" layoutY="581.0" prefWidth="200.0" progress="0.0" />
-            <Label layoutX="160.0" layoutY="159.0" text="Accessibility Tab Placeholder" textFill="#c3c3c3">
+            <Label fx:id="theem" layoutX="41.0" layoutY="100.0" text="THEME" textFill="#bcbcbc">
                <font>
-                  <Font size="33.0" />
+                  <Font size="23.0" />
                </font>
             </Label>
+            <Label fx:id="btn_themeswitch" layoutX="727.0" layoutY="100.0" onMouseClicked="#handleButtonAction" onMouseEntered="#toggleHover" onMouseExited="#toggleUnHover" text="DARK" textFill="#bcbcbc">
+               <font>
+                  <Font size="26.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <Separator layoutX="293.0" layoutY="76.0" prefWidth="200.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="tabmenu" layoutX="412.0" layoutY="82.0" prefHeight="91.0" prefWidth="812.0">
+      <AnchorPane fx:id="tabmenu" layoutX="412.0" layoutY="82.0" prefHeight="65.0" prefWidth="812.0">
           
-               <children>
+                           <children>
             
-                              <Label fx:id="btn_scan_current" layoutX="64.0" layoutY="10.0" text="SCAN" textFill="#bcbcbc">
+                                          <Label fx:id="btn_scan_current" layoutX="64.0" layoutY="10.0" text="SCAN" textFill="#bcbcbc">
                <font>
                   <Font size="26.0" />
                </font>
+               <effect>
+                  <Glow />
+               </effect>
             </Label>
             
-                              <Label fx:id="btn_logs_current" layoutX="234.0" layoutY="10.0" text="LOGS" textFill="#bcbcbc" visible="false">
+                                          <Label fx:id="btn_logs_current" layoutX="234.0" layoutY="10.0" text="LOGS" textFill="#bcbcbc" visible="false">
                <font>
                   <Font size="26.0" />
                </font>
+               <effect>
+                  <Glow />
+               </effect>
             </Label>
             
-                              <Label fx:id="btn_settings_current" layoutX="407.0" layoutY="10.0" text="SETTINGS" textFill="#bcbcbc" visible="false">
+                                          <Label fx:id="btn_settings_current" layoutX="407.0" layoutY="10.0" text="SETTINGS" textFill="#bcbcbc" visible="false">
                <font>
                   <Font size="26.0" />
                </font>
+               <effect>
+                  <Glow />
+               </effect>
             </Label>
             
-                                    <Label fx:id="btn_accessibility_current" layoutX="607.0" layoutY="10.0" text="ACCESSIBILITY" textFill="#bcbcbc" visible="false">
+                                                <Label fx:id="btn_accessibility_current" layoutX="607.0" layoutY="10.0" text="ACCESSIBILITY" textFill="#bcbcbc" visible="false">
                <font>
                   <Font size="26.0" />
                </font>
+               <effect>
+                  <Glow />
+               </effect>
             </Label>
             <Label fx:id="btn_scan" layoutX="64.0" layoutY="12.0" onMouseClicked="#switchTab" text="SCAN" visible="false">
                <font>
@@ -189,25 +239,25 @@
                </font>
             </Label>
             
-                              <Label fx:id="btn_logs" layoutX="234.0" layoutY="12.0" onMouseClicked="#switchTab" text="LOGS">
+                                          <Label fx:id="btn_logs" layoutX="234.0" layoutY="12.0" onMouseClicked="#switchTab" text="LOGS">
                <font>
                   <Font size="26.0" />
                </font>
             </Label>
             
-                              <Label fx:id="btn_settings" layoutX="407.0" layoutY="12.0" onMouseClicked="#switchTab" text="SETTINGS">
+                                          <Label fx:id="btn_settings" layoutX="407.0" layoutY="12.0" onMouseClicked="#switchTab" text="SETTINGS">
                <font>
                   <Font size="26.0" />
                </font>
             </Label>
             
-                              <Label fx:id="btn_accessibility" layoutX="607.0" layoutY="12.0" onMouseClicked="#switchTab" text="ACCESSIBILITY">
+                                          <Label fx:id="btn_accessibility" layoutX="607.0" layoutY="12.0" onMouseClicked="#switchTab" text="ACCESSIBILITY">
                <font>
                   <Font size="26.0" />
                </font>
             </Label>
          </children>
       
-            </AnchorPane>
+                        </AnchorPane>
    </children>
 </AnchorPane>
